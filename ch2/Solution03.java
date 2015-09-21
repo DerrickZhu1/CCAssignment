@@ -1,14 +1,14 @@
 package ch2;
 //Delete middle Node
 public class Solution03 {
-	public class ListNode {
+	public static class ListNode {
 		int val;
 		ListNode next;
 		ListNode(int x) {
 			val = x;
 		}
 	}
-	public void deleteMiddle(ListNode n) {
+	public static void deleteMiddle(ListNode n) {
 		if (n == null || n.next == null)
 			return;
 		ListNode nextNode = n.next;
