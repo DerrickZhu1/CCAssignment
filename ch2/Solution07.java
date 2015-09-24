@@ -2,14 +2,14 @@ package ch2;
 //Intersection: Given two (singly) linked lists, determine if the two lists intersect.
 //Return the intersecting node.
 public class Solution07 {
-	public class ListNode {
+	public static class ListNode {
 		int val;
 		ListNode next;
 		ListNode(int x) {
 			val = x;
 		}
 	}
-	public class Result {
+	public static class Result {
 		public ListNode tail;
 		public int size;
 		public Result(ListNode tail, int size) {
@@ -17,7 +17,7 @@ public class Solution07 {
 			this.size = size;
 		}
 	}
-	public Result getTailAndSize(ListNode list) {
+	public static Result getTailAndSize(ListNode list) {
 		if (list == null)
 			return null;
 		int size = 1;
@@ -28,7 +28,7 @@ public class Solution07 {
 		}
 		return new Result(current, size);
 	}
-	public ListNode getKthNode(ListNode head, int k) {
+	public static ListNode getKthNode(ListNode head, int k) {
 		ListNode current = head;
 		while (k > 0 && current != null) {
 			current = current.next;
@@ -36,7 +36,7 @@ public class Solution07 {
 		}
 		return current;
 	}
-	public ListNode findIntersection(ListNode list1, ListNode list2) {
+	public static ListNode findIntersection(ListNode list1, ListNode list2) {
 		if (list1 == null || list2 == null)
 			return null;
 		//Get tail and sizes
@@ -56,5 +56,24 @@ public class Solution07 {
 		}
 		return longer;
 	}
-
+	public static void main(String[] args) {
+		ListNode l1 = new ListNode(3);
+		ListNode l2 = new ListNode(1);
+		ListNode l3 = new ListNode(5);
+		ListNode l4 = new ListNode(9);
+		ListNode l5 = new ListNode(7);
+		ListNode l6 = new ListNode(2);
+		ListNode l7 = new ListNode(1);
+		ListNode m1 = new ListNode(4);
+		ListNode m2 = new ListNode(6);
+		l1.next = l2;
+		l2.next = l3;
+		l3.next = l4;
+		l4.next = l5;
+		l5.next = l6;
+		l6.next = l7;
+		m1.next = m2;
+		m2.next = l5;
+		System.out.println(findIntersection(l1, m1).val);
+	}
 }

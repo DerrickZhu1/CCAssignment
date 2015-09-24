@@ -34,15 +34,15 @@ public class Solution08 {
     }
     public static void main(String[] args) {
     	ListNode head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(3);
-    	ListNode result = FindBeginningOfLoop(head);
-    	System.out.println(result.val);
-    	
+    	ListNode first = new ListNode(2);
+    	ListNode second = new ListNode(3);
+    	ListNode third = new ListNode(4);
+    	ListNode fourth = new ListNode(5);
+    	head.next = first;
+    	first.next = second;
+    	second.next = third;
+    	third.next = fourth;
+    	fourth.next = second;
+    	System.out.println(findBeginningOfLoop(head).val);
     }
-    
-    
 }
